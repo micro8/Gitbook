@@ -102,7 +102,7 @@ unsigned char buf[] =
 ![](media/bae881deb4bd31f0a9bae8e76b42317f.jpg)
 
 ### 源码如下：
-```c++
+```cpp
 # include <windows.h>
 int main(void)
 {

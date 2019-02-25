@@ -6,7 +6,7 @@
 ![](media/d434ad0c2a6c5f531e908fedca5f2044.jpg)
 
 ### 附：源码如下：
-```vb
+```visual-basic
 strFileURL = "http://192.168.1.115/robots.txt"
 strHDLocation = "c:\\test\\logo.txt"
 Set objXMLHTTP = CreateObject("MSXML2.XMLHTTP")

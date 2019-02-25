@@ -29,7 +29,7 @@ C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe Micropoor.xml
 ### 附录：Micropoor.xml
 **注：x86 payload**
 
-```c#
+```csharp
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 <!‐‐ C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe SimpleTasks.csproj Micropoor ‐‐>

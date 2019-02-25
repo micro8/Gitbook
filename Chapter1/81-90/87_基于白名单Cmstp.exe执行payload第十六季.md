@@ -89,7 +89,7 @@ meterpreter >
 ### 附录：
 
 **Micropoor_rev_cmstp_inf：**
-```inf
+```ini
 [version]
  
 Signature=$chicago$
@@ -114,7 +114,7 @@ ShortSvcName="Micropoor"
 ```
 
 **cmstp_rev_53_x64.sct**
-```JS
+```javascript
 <?XML version="1.0"?>
 <scriptlet>
 <registration

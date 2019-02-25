@@ -9,7 +9,7 @@ C:\test>cscript /nologo downfile.js http://192.168.1.115/robots.txt
 ![](media/ac794b7eb3758d954dbf95912895dd41.jpg)
 
 ### 附代码：
-```js
+```javascript
 var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
 WinHttpReq.Open("GET", WScript.Arguments(0), /*async=*/false);
 WinHttpReq.Send();
@@ -23,7 +23,7 @@ C:\test>cscript /nologo dowfile2.js http://192.168.1.115/robots.txt
 ![](media/21081f49afc31e94235293e3337967b7.jpg)
 
 ### 附代码：
-```js
+```javascript
 var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
 WinHttpReq.Open("GET", WScript.Arguments(0), /*async=*/false);
 WinHttpReq.Send();

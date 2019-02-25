@@ -44,7 +44,7 @@ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogTo
 
 ### 附录：Micropoor_Csc.cs
 
-```c#
+```csharp
 using System;
 
 using System.Net;
