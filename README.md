@@ -18,5 +18,3 @@ Micro8 系列适用于初中级安全从业人员，乙方安全测试，甲方�
 
 ### 附
 Gitbook 正在逐步完善中，为此带来的不便请您包含，同时也欢迎大家提出宝贵的改进意见！
-项目地址：  
-https://github.com/maskhed/Micro8-Gitbook
