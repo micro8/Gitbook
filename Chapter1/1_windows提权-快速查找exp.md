@@ -1,6 +1,9 @@
 ### 微软官方时刻关注列表网址：
 
-https://technet.microsoft.com/zh-cn/library/security/dn639106.aspx
+~~https://technet.microsoft.com/zh-cn/library/security/dn639106.aspx~~  
+地址更新为：  
+https://docs.microsoft.com/zh-cn/security-updates/securitybulletins/2017/securitybulletins2017
+
 
 ![](media/dff0648ea3163cbe403c144932470520.jpg)
 
