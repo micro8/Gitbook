@@ -3,7 +3,7 @@
 * [前言](README.md)
 * [Preface](README_EN.md)
 * [目录](Contents.md)
-* 第一章：生
+* [第一章：生](Contents.md)
     * [第一课：windows提权-快速查找exp](Chapter1/1_windows提权-快速查找exp.md)
     * [第二课：Linux提权-依赖exp篇](Chapter1/2_Linux提权-依赖exp篇.md)  
     * [第三课：Delphi代码审计--项目实战1](Chapter1/3_Delphi代码审计--项目实战1.md)  
@@ -128,6 +128,5 @@
     * 第一百二十一课：http加密代理深度应用 [ abptts ]---klion
     * 第一百二十二课：利用 ssh隧道实现内网断网机meterpreter反向上线---klion
     * 第一百二十三课：利用ssh隧道将公网meterpreter弹至本地的msf中---klion
-    
-* 第三章：病（待更新...）
 
+* 第三章：病（待更新...）
