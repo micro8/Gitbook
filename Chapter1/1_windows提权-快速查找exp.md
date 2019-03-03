@@ -1,3 +1,5 @@
+# Windows 提权 -- 快速查找 exp
+
 ### 微软官方时刻关注列表网址：
 
 ~~https://technet.microsoft.com/zh-cn/library/security/dn639106.aspx~~  
@@ -13,12 +15,12 @@ https://docs.microsoft.com/zh-cn/security-updates/securitybulletins/2017/securit
 * KB2592799
 * ...
 
-快速查找未打补丁的exp，可以最安全的减少目标机的未知错误，以免影响业务。
+快速查找未打补丁的 exp，可以最安全的减少目标机的未知错误，以免影响业务。
 命令行下执行检测未打补丁的命令如下：
 
-```bash
-systeminfo>micropoor.txt&(for %i in ( KB977165 KB2160329 KB2503665 KB2592799 
-KB2707511 KB2829361 KB2850851 KB3000061 KB3045171 KB3077657 KB3079904 
+```powershell
+systeminfo>micropoor.txt&(for %i in ( KB977165 KB2160329 KB2503665 KB2592799
+KB2707511 KB2829361 KB2850851 KB3000061 KB3045171 KB3077657 KB3079904
 KB3134228 KB3143141 KB3141780 ) do @type micropoor.txt|@find /i
 "%i"|| @echo %i you can fuck)&del /f /q /a micropoor.txt
 ```
@@ -28,7 +30,7 @@ KB3134228 KB3143141 KB3141780 ) do @type micropoor.txt|@find /i
 ### 示例
 一般实战中在类似 `tmp` 目录等可写目录下执行：如 `C:\tmp>`
 
-以11-080为例：  
+以 `11-080` 为例：  
 ![](media/3b63ae0a14a9720140246f049ed8ab41.jpg)
 
 ![](media/b0f61077ab0e9fd3adeed9eafc0860c6.jpg)
@@ -37,11 +39,10 @@ KB3134228 KB3143141 KB3141780 ) do @type micropoor.txt|@find /i
 
 ### exp注：
 
-```bash
+```markdown
 MS17-017 [KB4013081] [GDI Palette Objects Local Privilege Escalation] (windows 7/8)
-CVE-2017-8464 [LNK Remote Code Execution Vulnerability]   （windows 10/8.1/7/2016/2010/2008）
-CVE-2017-0213 [Windows COM Elevation of Privilege Vulnerability]
-(windows 10/8.1/7/2016/2010/2008)
+CVE-2017-8464 [LNK Remote Code Execution Vulnerability] (windows 10/8.1/7/2016/2010/2008）
+CVE-2017-0213 [Windows COM Elevation of Privilege Vulnerability] (windows 10/8.1/7/2016/2010/2008)
 MS17-010 [KB4013389] [Windows Kernel Mode Drivers](windows 7/2008/2003/XP)
 MS16-135 [KB3199135] [Windows Kernel Mode Drivers] (2016)
 MS16-111 [KB3186973] [kernel api] (Windows 10 10586 (32/64)/8.1)
@@ -96,4 +97,4 @@ https://github.com/SecWiki/windows-kernel-exploits
 https://github.com/WindowsExploits/Exploits  
 https://github.com/AusJock/Privilege-Escalation
 
->   Micropoor
+<p align="right">--By  Micropoor </p>

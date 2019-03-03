@@ -1,65 +1,88 @@
 
-程序的主要 function，与 procedure
+## Delphi 代码审计 -- 项目实战1
 
-**注：**Delphi把操作数据的方法分成了两种，一种是function，另一种是procedure，大致理解为“函数”和“过程”。
-Procedure类似C语言中的无返回值函数，即VOID。而Function就是c语言中的有返回值函数，即没有Void。  
+### 1、Function & Procedure   
+
+  Delphi 把操作数据的方法分成了两种，一种是 function，另一种是 procedure，大致理解为“函数”和“过程”。
+ Procedure 类似 C 语言中的无返回值函数，即 VOID。而 Function 就是 C 语言中的有返回值函数，即没有 Void。  
+
 ![](media/21e65a213b1774c59d03619cb69683b4.jpg)
 
-程序分为2种连接数据库模式：  
+### 2、连接数据库  
+
+程序分为两种连接数据库模式：  
+
 ![](media/080d91e0679721483224a0d29b818c61.jpg)
 
-无论是本地模式，还是联网模式，都是读取，当前路径的config.ini配置文件：
-**（导致敏感信息暴漏，可直连服务器）**
+无论是本地模式，还是联网模式，都是读取，当前路径的 config.ini 配置文件：  
+<font color=red> （导致敏感信息暴漏，可直连服务器） </font>
 
 ![](media/00335e7c032c10d239df4a1c64a1543e.jpg)
 
 继续跟数据库连接：配合SQL Server数据库，直接带入，可以判断出为明文存储。  
+
 ![](media/f0281f9b417bfcff8962a51f84f410b3.jpg)
 
-config.ini配置如下：  
+### 3、config.ini
+
+config.ini 配置如下：  
+
 ![](media/7a7ab42ea759160c062a56d2c4f1cc88.jpg)
 
+### 4、C/S 交互过程
+
 基于TCP通信，SQL Server通信构架大致如下：
-**（可导致通信过程中抓取明文执行）**
+<font color=red> （可导致通信过程中抓取明文执行） </font>
 
 ![](media/109415886494f35eb1abb0dc65e1ea4a.jpg)
 
-代入执行：
-**（导致可拼接sql语句，查询任意语句或者执行命令）**
+### 5、SQL 注入
+
+代入执行：<font color=red>（导致可拼接sql语句，查询任意语句或者执行命令）</font>
 
 ![](media/f2d2fa55ca7000f6ac4e2a7f35096223.jpg)  
+
 ![](media/9c7cde20e5b9f00367d3e9e6742795bd.jpg)
 
 部分语句其中如下：
 ```sql
-select distinct memberid,receivecompany 
-from weigh where receivecompany is not null 
-and receivecompany like ''%'+xxxxxx+'%''
+select distinct memberid,receivecompany
+from weigh where receivecompany is not null and receivecompany like ''%'+xxxxxx+'%''
 ```
+### 6、Client  
 
 软件呈现如下：  
+
 ![](media/fb920104b40786b665ab4f54efcc7f45.jpg)
 
-对应收货单位编号，以及收货单位名称。分别为：`memberid`, `receivecompany`
+### 7、构造 SQL 语句
 
-闭合语句为：
-`2' ; select loginid as memberid , password as receivecompany from sysuser --`  
+对应收货单位编号，以及收货单位名称。分别为：`memberid`, `receivecompany`。闭合语句为：  
+
+```sql
+2' ; select loginid as memberid , password as receivecompany from sysuser --
+```  
+
 ![](media/3fe1f0dff1f17524e03aa152e59172b2.jpg)
 
-抓取返回如图：
-得到admin 账号以及密码。  
+抓取返回如图：  
+
+* 得到admin 账号以及密码。  
+
 ![](media/0832ba025e9189a7099cd2e4dc368152.jpg)
 
-构造读取远程桌面端口号：
-得到远程服务器端口号
+* 构造读取远程桌面端口号：得到远程服务器端口号  
+
 ```sql
 2' ; EXEC master..xp_regread 'HKEY_LOCAL_MACHINE',
 'SYSTEM\CurrentControlSet\Control\TerminalServer\WinStations\RDP-Tcp',
 'PortNumber' --
-```
+```  
 
-copy 获取缓冲区内容：
-**（导致可从服务器端构造代码）**  
+### 8、获取缓冲区内容
+
+copy 获取缓冲区内容：<font color=red> （导致可从服务器端构造代码）</font>  
+
 ![](media/12eae8dd1c87a5e9f14244f5c7b4eb70.jpg)
 
 copy 用法如下：
@@ -71,15 +94,16 @@ copy 用法如下：
 >exp： m:=‘the test fuck'  
 >      s：=copy（m,2,2）； //s值为‘he’
 
-当超出范围，会发生异常错误。实例中，从服务器数据库获取数据后进行copy。
+当超出范围，会发生异常错误。实例中，从服务器数据库获取数据后进行 copy。
 
-软件登陆部分代码如下：
-**（导致可自动化跑 loginid。）**  
+软件登陆部分代码如下：<font color=red>（导致可自动化跑 loginid。）</font>    
+
 ![](media/24734f4bbaa74f862cfbcac3b53faf83.jpg)
 
-多次尝试错误处理如下：退出软件，并且重新开始计算。  
+多次尝试错误处理如下：退出软件，并且重新开始计算。   
+ 
 ![](media/4ec9526c01770e2d5f17c9cc9a76b26b.jpg)
 
 
 
->   Micropoor
+<p align="right">--By  Micropoor </p>

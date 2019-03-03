@@ -1,9 +1,13 @@
+# 工具介绍 Veil-Evasion
+
 项目地址：  
 https://github.com/Veil-Framework/Veil-Evasion
 
-Veil-Evasion 是与 Metasploit 生成相兼容的Payload的一款辅助框架，并可以绕过大多数的杀软。
+### 1、Veil-Evasion
 
-Veil-Evasion并没有集成在kali，配置sources.list，可直接apt-get。
+Veil-Evasion 是与 Metasploit 生成相兼容的 Payload 的一款辅助框架，并可以绕过大多数的杀软。
+
+Veil-Evasion 并没有集成在kali，配置 sources.list，可直接 apt-get。
 ```bash
 root@John:~/Deskto#cat /etc/apt/sources.list
 
@@ -14,30 +18,30 @@ deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
 #deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
 #deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
 #清华大学
-#deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free 
-#deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free 
+#deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
 #浙大
 #deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
 #deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
 #东软大学
 #deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
-#deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib 
+#deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
 #官方源
-deb http://http.kali.org/kali kali-rolling main non-free contrib 
-deb-src http://http.kali.org/kali kali-rolling main non-free contrib 
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 #重庆大学
-#deb http://http.kali.org/kali kali-rolling main non-free contrib 
+#deb http://http.kali.org/kali kali-rolling main non-free contrib
 #deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 ```  
 
-![](media/0bf8f9c39799eabc1ad3525e6635d060.jpg)  
+### 2、安装
 
 ```bash
 root@John:~/Desktop# apt-get install veil-evasion
 ```
 
-由于在实验中本机已经安装，所以我们在虚拟机中使用git方式来下载和安装。（以便截图）  
-ps:本次kali下截图使用 scrot  
+由于在实验中本机已经安装，所以我们在虚拟机中使用 git 方式来下载和安装。（以便截图）  
+ps:本次 kali 下截图使用 scrot  
 
 ```bash
 root@John:~/Deskto# apt-get install scrot
@@ -48,7 +52,7 @@ root@John:~/Deskto# git clone https://github.com/Veil-Framework/Veil-Evasion.git
 ![](media/9665385060c79f6175e74032ad2e5f5f.jpg)
 
 ```bash
-root@John:~/Veil-Evasion# ./setup.sh 
+root@John:~/Veil-Evasion# ./setup.sh
 //安装漫长
 ```  
 ![](media/b1a88b6e639e83ba04dcb815f1be3035.jpg)  
@@ -56,6 +60,8 @@ root@John:~/Veil-Evasion# ./setup.sh
 ![](media/65807c037d2e0d7f6330de1be8bf7801.jpg)  
 
 ![](media/a6dd85c8811146b386d748891dc40ee8.jpg)  
+
+### 3、测试  
 
 以 `c/meterpreter/rev_tcp` 为例：  
 ![](media/6d0b6469b0b5b2cfcee03a1d9544441a.jpg)  
@@ -65,7 +71,8 @@ root@John:~/Veil-Evasion# ./setup.sh
 ps:Veil-Evasion 不再更新，新版本项目地址：  
 https://github.com/Veil-Framework/Veil
 
-**附录：**
+### 4、附录：
+
 ```bash
 [*] 可支持生成payloads:  
 1) auxiliary/coldwar_wrapper  
@@ -120,4 +127,5 @@ https://github.com/Veil-Framework/Veil
 50) ruby/shellcode_inject/base64  
 51) ruby/shellcode_inject/flat  
 ```
->   Micropoor
+
+<p align="right">--By  Micropoor </p>

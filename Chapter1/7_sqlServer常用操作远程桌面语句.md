@@ -1,3 +1,6 @@
+
+# SqlServer 常用操作远程桌面语句
+
 ### 1、是否开启远程桌面
 * 1：表示关闭
 * 0：表示开启
@@ -48,4 +51,4 @@ EXEC master.dbo.xp_regwrite'HKEY_LOCAL_MACHINE',
 'fDenyTSConnections','REG_DWORD',1;
 ```
 
->   Micropoor
+<p align="right">--By  Micropoor </p>

